@@ -1,0 +1,11 @@
+body {
+    padding: 15px;
+}
+
+.filter {
+    display: inline-block;
+}
+
+.container {
+    display: inline-block
+}
