@@ -7,4 +7,5 @@ urlpatterns=[
     url(r'^home$', views.home),
     url(r'^browse$', views.browse),
     url(r'^recipe/view/(?P<id>\d+)$',views.showrecipe),
+    url(r'^search$',views.search)
 ]
