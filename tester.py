@@ -1,6 +1,5 @@
-from django.shortcuts import render, HttpResponse
 import requests
-
+ 
 def getRecipeById(id):
 
     headers={
