@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Foopie</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'recipe_app/css/home.css' %}">
 </head>
 <body>
     <nav class="navbar navbar-light bg-light">
@@ -14,5 +16,19 @@
             <a href="">Log In</a> | <a href="">Sign Up</a>
         </form>
     </nav>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <form class="form-inline my-2 my-lg-0 customform">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="featured"></div>
+        <div class="featured"></div>
+        <div class="featured"></div>
+        <div class="featured"></div>
+    </div>
 </body>
 </html>
