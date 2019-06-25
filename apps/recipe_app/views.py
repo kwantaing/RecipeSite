@@ -66,7 +66,7 @@ def browse(request):
     return render(request, 'browse.html')
 def test(request):
     context = {
-        'recipes' : filterbyCuisine('japanese')["results"]
+        'recipes' : filterbyCuisine('cambodian')["results"]
     }
     return render(request, 'test.html',context)
 
