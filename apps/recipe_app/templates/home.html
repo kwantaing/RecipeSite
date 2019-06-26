@@ -23,13 +23,27 @@
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
+            <button class="btn btn-outline-success my-2 my-sm-0"><a href="/surprise">Surprise Me</a></button>
         </div>
     </div>
+    <header><h1>Featured</h1></header>
     <div class="wrapper">
-        <div class="featured"></div>
-        <div class="featured"></div>
-        <div class="featured"></div>
-        <div class="featured"></div>
+        <div class="featured">
+            <a href="/recipe/view/{{featured1.id}}"><img src="{{featured1.image}}" alt=""></a>
+            <h5>{{featured1.title}}</h5>
+        </div>
+        <div class="featured">
+                <a href="/recipe/view/{{featured2.id}}"><img src="{{featured2.image}}" alt=""></a>
+                <h5>{{featured2.title}}</h5>
+        </div>
+        <div class="featured">
+                <a href="/recipe/view/{{featured3.id}}"><img src="{{featured3.image}}" alt=""></a>
+                <h5>{{featured3.title}}</h5>
+        </div>
+        <div class="featured">
+                <a href="/recipe/view/{{featured4.id}}"><img src="{{featured4.image}}" alt=""></a>
+                <h5>{{featured4.title}}</h5>
+        </div>
     </div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
 import requests
+from random import randint
 
 def getRecipeById(id):
 
@@ -24,6 +25,17 @@ def searchRecipes(query):
         'number' : 15
      }
     r = requests.get(endpoint,params = params, headers = headers)
+    results = r.json()
+    print(results)
+    return results
+
+def randomrecipe():
+    endpoint="https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random"
+    headers = {
+        "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+        "X-RapidAPI-Key": "70cfe9b480msh6003ae8a99fd83fp1a0e1djsn2384d115aca9"
+    }
+    r = requests.get(endpoint,headers = headers)
     results = r.json()
     print(results)
     return results
@@ -58,7 +70,11 @@ def index(request):
 
 def home(request):
     context = {
-        'joke' : jokes()["text"]
+        'joke' : jokes()["text"],
+        'featured1' : randomrecipe()["recipes"][0],
+        'featured2' : randomrecipe()["recipes"][0],
+        'featured3' : randomrecipe()["recipes"][0],
+        'featured4' : randomrecipe()["recipes"][0]
     }
     return render(request, 'home.html',context)
 
@@ -82,3 +98,12 @@ def search(request):
         'recipes' : searchRecipes(search)["results"]
     }
     return render(request, 'browse.html',context)
+
+def surprise(request):
+    context = {
+        'recipe' :randomrecipe()["recipes"][0]
+    }
+    return render(request,'detail.html',context)
+
+print(randomrecipe())
+

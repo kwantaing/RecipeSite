@@ -21,3 +21,9 @@ body {
     border-radius: 5px;
     text-align: center;
 }
+.featured img{
+    border-radius: 5px;
+    max-height:100%;
+    width:100%;
+
+}
