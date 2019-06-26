@@ -30,9 +30,7 @@ body {
     overflow-y: scroll;
 
 }
-h1 a{
-    color:black;
-}
+
 .row {
     border:3px solid pink;
     border-radius:10px;
