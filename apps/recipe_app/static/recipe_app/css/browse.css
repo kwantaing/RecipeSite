@@ -3,21 +3,27 @@ body {
 }
 .navbar{
     position:relative;
+    margin-bottom:15px;
 }
 .navbar .search{
     position:absolute;
-    top: 5px;;
+    top: 17px;;
     right:20px;
 }
 .filter {
+    border:3px solid pink;
+    border-radius:10px;
     display: inline-block;
     vertical-align: top;
     width: auto;
     height: 100%;
     width:25%;
+    margin:0 20px;
 }
 
 .container {
+    border:3px solid pink;
+    border-radius:10px;
     display: inline-block;
     width: 70%;
     height:700px;
@@ -26,6 +32,8 @@ body {
 }
 
 .row {
+    border:3px solid pink;
+    border-radius:10px;
     margin: 10px;
     text-align: center;
 }
