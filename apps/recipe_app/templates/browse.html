@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'recipe_app/css/browse.css' %}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a href = "/"><h1>Foopie</h1></a>
         <form action="/search" method = POST class="form-inline my-2 my-lg-0 search"> {% csrf_token %}
             <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
