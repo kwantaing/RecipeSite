@@ -11,15 +11,16 @@
 </head>
 <body>
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand">Foopie</a>
+        <a href="/"class="navbar-brand">Foopie</a>
         <form class="form-inline">
             <a href="">Log In</a> | <a href="">Sign Up</a>
         </form>
     </nav>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <form class="form-inline my-2 my-lg-0 customform">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <h1>{{joke}}</h1>
+            <form action="/search" method=POST class="form-inline my-2 my-lg-0 customform"> {% csrf_token %}
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
