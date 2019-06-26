@@ -1,0 +1,23 @@
+body {
+    padding: 15px;
+}
+
+.jumbotron,.container{
+    text-align:center;
+}
+.customform{
+    display:inline-block;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+  }
+
+.featured {
+    border: 1px solid black;
+    height: 200px;
+    border-radius: 5px;
+    text-align: center;
+}
