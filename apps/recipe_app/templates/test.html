@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    {{recipes}}
     {% for recipe in recipes %}
        <p><a href="/recipe/view/{{recipe.id}}">{{recipe.title}}</a></p>
        <p></p>

@@ -21,7 +21,7 @@ def searchRecipes(query):
         }
     params = { 
         'query' :query,
-        'number' : 25
+        'number' : 15
      }
     r = requests.get(endpoint,params = params, headers = headers)
     results = r.json()
@@ -36,7 +36,7 @@ def filterbyCuisine(cuisine):
     }
     params = {
         'cuisine' : cuisine,
-        'number'  : 25
+        'number'  : 15
     }
     r = requests.get(endpoint,params = params, headers = headers)
     results = r.json()
@@ -81,4 +81,4 @@ def search(request):
     context = {
         'recipes' : searchRecipes(search)["results"]
     }
-    return render(request, 'test.html',context)
+    return render(request, 'browse.html',context)
