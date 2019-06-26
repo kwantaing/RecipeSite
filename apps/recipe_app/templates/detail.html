@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,6 +28,61 @@
         </ul>
         {% endfor %}
         <p>Instructions: {{recipe.instructions}}</p>
+    </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'recipe_app/css/detail.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+
+        <nav class="navbar navbar-dark bg-dark">
+            <h1><a href="/"class="navbar-brand app_name">Foopie</a></h1>
+            <form action="/search" method=POST class="form-inline my-2 my-lg-0 customform"> 
+                {% csrf_token %}
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <form class="form-inline">
+                <a href="">Profile</a> | <a href="">Sign Out</a>
+            </form>
+        </nav>
+        <div class="details">
+            <div class="title_box">                
+                <p class="food_name">{{recipe.title}}</p>
+                <form action="/like" method="POST" class="like_btn">
+                    <input type="image" src="{% static 'recipe_app/images/heart.png'%}" alt="submit" class="heart">
+                </form>
+            </div>
+            <img src="{{recipe.image}}" alt="Image" class="food_pic">
+            <div class="instruction">
+                    <img src="{% static 'recipe_app/images/cakebg.jpg'%}" class="instruction_bg">
+                    <p class="instruction_info"> 
+                        <span class="ins_heading">Instructions: </span>
+                        {{recipe.instructions}}
+                    </p>
+            </div>
+            <div class="info">    
+                <p>Ready in Minutes: {{recipe.readyInMinutes}}</p>
+                <p>Serving Size :{{recipe.servings}}</p>
+            </div>
+            <div class="ingredient_box">
+                <p><span class="ingredient_heading">Ingredients:</span>
+                {% for ingredient in recipe.extendedIngredients %}
+                    <span>{{ingredient.name}}, </span>
+                {% endfor %}
+                </p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
