@@ -17,15 +17,17 @@
         </form>
     </nav>
     <div class="details">
-        <!-- <p>{{recipe}}</p> -->
         <p>{{recipe.title}}</p>
         <img src="{{recipe.image}}" alt="Image">
         <p>Ready in Minutes: {{recipe.readyInMinutes}}</p>
         <p>Serving Size :{{recipe.servings}}</p>
-        <p>Instructions: {{recipe.instructions}}</p>
+        <p>Ingredients:</p>
         {% for ingredient in recipe.extendedIngredients %}
-            <p>Ingredient: {{ingredient.name}}</p>
+        <ul>
+            <li>{{ingredient.original}}</li>
+        </ul>
         {% endfor %}
+        <p>Instructions: {{recipe.instructions}}</p>
     </div>
 </body>
 </html>
