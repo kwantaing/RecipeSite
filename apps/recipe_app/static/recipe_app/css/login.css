@@ -8,6 +8,19 @@ h1 {
     color: aliceblue;
 }
 
+.error {
+    color: red;
+    font-size: 15px;
+    background-color: white;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 5px 10px 8px black;
+}
+
+.messages {
+    list-style-type: none;
+}
+
 .case {
     margin: 5%;
 }
