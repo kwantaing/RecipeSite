@@ -7,7 +7,7 @@ urlpatterns=[
     url(r'^welcome$',views.home),
     url(r'^login$',views.login),
     url(r'^logout$',views.logout),
-    url(r'^browse$', views.browse),
+    url(r'^browse/(?P<cuisine>\w+)$', views.browse),
     url(r'^recipe/view/(?P<id>\d+)$',views.showrecipe),
     url(r'^search$',views.search),
     url(r'^surprise$',views.surprise)
