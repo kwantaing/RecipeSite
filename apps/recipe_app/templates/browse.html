@@ -19,7 +19,7 @@
         </form>
         <form method=post class="form-inline my-2 my-lg-0 customform right_nav">
                 {% csrf_token %}
-             <p class="text-light"><a class="text-light">Welcome {{user.first_name}}!&nbsp&nbsp</a> <a class="text-light" href="#">Profile</a> | <a class="text-light" href="/">Sign Out</a></p>
+             <p class="text-light"><a class="text-light">Welcome {{user.first_name}}!&nbsp&nbsp</a> <a class="text-light" href="/profile">Profile</a> | <a class="text-light" href="/logout">Sign Out</a></p>
         </form>
     </nav>
 
