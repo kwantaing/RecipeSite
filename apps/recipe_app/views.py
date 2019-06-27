@@ -23,7 +23,7 @@ def searchRecipes(query):
         }
     params = { 
         'query' :query,
-        'number' : 15
+        'number' : 1
      }
     r = requests.get(endpoint,params = params, headers = headers)
     results = r.json()
@@ -47,7 +47,7 @@ def filterbyCuisine(cuisine):
     }
     params = {
         'cuisine' : cuisine,
-        'number'  : 15
+        'number'  : 1
     }
     r = requests.get(endpoint,params = params, headers = headers)
     results = r.json()
@@ -67,8 +67,13 @@ def index(request):
     return render(request, 'index.html')
 
 
-def browse(request):
-    return render(request, 'browse.html')
+def browse(request,cuisine):
+    context = {
+        'user': User.objects.get(id=request.session["id"]),
+        "recipes" : filterbyCuisine(cuisine)["results"]
+    }
+    return render(request, 'browse.html', context)
+
 def test(request):
     context = {
         'recipes' : filterbyCuisine('cambodian')["results"]
@@ -84,6 +89,7 @@ def showrecipe(request,id):
 def search(request):
     search = request.POST["search"]
     context = {
+        'user': User.objects.get(id=request.session["id"]),
         'recipes' : searchRecipes(search)["results"]
     }
     return render(request, 'browse.html',context)
