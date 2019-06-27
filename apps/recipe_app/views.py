@@ -145,7 +145,6 @@ def profile(request):
     else:
         context = {
             'user' : User.objects.get(id=request.session["id"]),
-            'favorites' :"placeholder"
         }
         return render(request, "profile.html", context )
 
@@ -154,10 +153,17 @@ def addtoFavorite(request):
     title = request.POST["title"]
     instructions = request.POST["instructions"]
     image = request.POST["image"]
+    readyInMinutes = request.POST["readyInMinutes"]
     print("RecipeID:",recipe_id)
     print("Title:",title)
     print("Instructions",instructions)
     print("Image",image)
-    newfav = Recipe.objects.create(recipe_id = recipe_id, title = title, instructions = instructions, image = image, favoritedby = User.objects.get(id=request.session["id"]))
+    newfav = Recipe.objects.create(recipe_id = recipe_id, title = title, instructions = instructions, image = image, readyInMinutes = readyInMinutes)
     user = User.objects.get(id=request.session["id"]).favorites.add(newfav)
+    return redirect('/profile')
+
+def removefav(request,id):
+    user = User.objects.get(id=request.session["id"])
+    fav = Recipe.objects.get(id = id)
+    user.favorites.remove(fav)
     return redirect('/profile')

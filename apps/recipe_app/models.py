@@ -77,6 +77,7 @@ class User(models.Model):
     email = models.EmailField()
     password = models.CharField(max_length = 45)
     pwconfirm = models.CharField(max_length = 45)
+    created_on = models.DateField(auto_now_add = True)
     objects = Reg_Manager()
 
     def __str__(self):
@@ -87,5 +88,6 @@ class Recipe(models.Model):
     title = models.CharField(max_length = 225)
     instructions = models.TextField()
     image = models.URLField()
-    favoritedby = models.ForeignKey(User,related_name = "favorites")
+    readyInMinutes = models.IntegerField()
+    favoritedby = models.ManyToManyField(User,related_name = "favorites")
 
