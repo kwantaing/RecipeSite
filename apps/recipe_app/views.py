@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from .models import User
+from .models import User, Recipe
 from django.contrib import messages
 import bcrypt
 import requests
@@ -138,3 +138,26 @@ def login(request):
 def logout(request):
     del request.session["id"]
     return redirect('/')
+
+def profile(request):
+    if "id" not in request.session:
+        return redirect('/')
+    else:
+        context = {
+            'user' : User.objects.get(id=request.session["id"]),
+            'favorites' :"placeholder"
+        }
+        return render(request, "profile.html", context )
+
+def addtoFavorite(request):
+    recipe_id = request.POST["recipe_id"]
+    title = request.POST["title"]
+    instructions = request.POST["instructions"]
+    image = request.POST["image"]
+    print("RecipeID:",recipe_id)
+    print("Title:",title)
+    print("Instructions",instructions)
+    print("Image",image)
+    newfav = Recipe.objects.create(recipe_id = recipe_id, title = title, instructions = instructions, image = image, favoritedby = User.objects.get(id=request.session["id"]))
+    user = User.objects.get(id=request.session["id"]).favorites.add(newfav)
+    return redirect('/profile')

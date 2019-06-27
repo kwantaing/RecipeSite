@@ -82,3 +82,10 @@ class User(models.Model):
     def __str__(self):
         return f"{self.email}"
     
+class Recipe(models.Model):
+    recipe_id = models.IntegerField()
+    title = models.CharField(max_length = 225)
+    instructions = models.TextField()
+    image = models.URLField()
+    favoritedby = models.ForeignKey(User,related_name = "favorites")
+
