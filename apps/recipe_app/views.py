@@ -23,7 +23,7 @@ def searchRecipes(query):
         }
     params = { 
         'query' :query,
-        'number' : 1
+        'number' : 10
      }
     r = requests.get(endpoint,params = params, headers = headers)
     results = r.json()
@@ -47,7 +47,7 @@ def filterbyCuisine(cuisine):
     }
     params = {
         'cuisine' : cuisine,
-        'number'  : 1
+        'number'  : 10
     }
     r = requests.get(endpoint,params = params, headers = headers)
     results = r.json()
@@ -82,6 +82,7 @@ def test(request):
 
 def showrecipe(request,id):
     context = {
+        'user': User.objects.get(id=request.session["id"]),
         'recipe' : getRecipeById(int(id))
     }
     return render(request,'detail.html',context)
@@ -96,6 +97,7 @@ def search(request):
 
 def surprise(request):
     context = {
+        'user': User.objects.get(id=request.session["id"]),
         'recipe' :randomrecipe()["recipes"][0]
     }
     return render(request,'detail.html',context)

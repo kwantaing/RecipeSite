@@ -7,22 +7,24 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     {% load static %}
     <link rel="stylesheet" href="{% static 'recipe_app/css/detail.css' %}">
-    <title>Document</title>
+    <title>{{recipe.title}}</title>
 </head>
 <body>
+    <nav class="navbar navbar-dark bg-dark">
+        <h1>
+            <a href="/welcome"class="navbar-brand app_name">Foopie</a>
+        </h1>
+        <form action="/search" method=POST class="form-inline my-2 my-lg-0 customform"> 
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <form class="form-inline my-2 my-lg-0 customform right_nav">
+                <p class="text-light"> <a class="text-light">Welcome {{user.first_name}}!&nbsp&nbsp</a><a href="/profile" class="text-light">Profile</a> | <a href="/logout" class="text-light"> Sign Out</a> </p> 
+        </form>
+    </nav>
     <div class="container">
 
-        <nav class="navbar navbar-dark bg-dark">
-            <h1><a href="/welcome"class="navbar-brand app_name">Foopie</a></h1>
-            <form action="/search" method=POST class="form-inline my-2 my-lg-0 customform"> 
-                {% csrf_token %}
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-            <form class="form-inline">
-                <a href="/profile">Profile</a> | <a href="/logout">Sign Out</a>
-            </form>
-        </nav>
         <div class="details">
             <div class="title_box">                
                 <p class="food_name">{{recipe.title}}</p>

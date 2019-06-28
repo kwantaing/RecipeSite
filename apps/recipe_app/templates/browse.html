@@ -11,8 +11,8 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="text-light col-5" href = "/home"><h1>Foopie</h1></a>
-        <form action="/search" method = POST class=" col-6 form-inline my-2 my-lg-0 customform mx-atuo"> 
+        <a class="text-light col-5" href = "/welcome"><h1>Foopie</h1></a>
+        <form action="/search" method = POST class=" col-4 form-inline my-2 my-lg-0 customform mx-atuo"> 
             {% csrf_token %}
             <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -30,7 +30,7 @@
             <li><a class="text-dark" href="/browse/chinese">Chinese</a></li>
             <li><a class="text-dark" href="/browse/indian">Indian</a></li>
             <li><a class="text-dark" href="/browse/italian">Italian</a></li>
-            <li><a class="text-dark" href="/browse/japanese">Janapnese</a></li>
+            <li><a class="text-dark" href="/browse/japanese">Japanese</a></li>
             <li><a class="text-dark" href="/browse/korean">Korean</a></li>
             <li><a class="text-dark" href="/browse/mexican">Mexican</a></li>
             <li><a class="text-dark" href="/browse/thai">Thai</a></li>
@@ -49,7 +49,8 @@
                 <p class="desc">Ready in: {{recipe.readyInMinutes}} minutes</p>
             </div>
             <div class="col align-self-end fav_link">
-                <form action="/like" method="POST" class="like_btn">
+                <form action="/recipe/view/{{recipe.id}}" method="POST" class="like_btn">
+                    {% csrf_token %}
                     <input type="image" src="{% static 'recipe_app/images/heart.png'%}" alt="submit" class="heart">
                 </form>
             </div>

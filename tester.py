@@ -20,7 +20,7 @@ def searchRecipes(query):
         }
     params = { 
         'query' :query,
-        'number' : 25
+        'number' : 2
      }
     r = requests.get(endpoint,params = params, headers = headers)
     results = r.json()
@@ -35,11 +35,9 @@ def filterbyCuisine(cuisine):
     }
     params = {
         'cuisine' : cuisine,
-        'number'  : 25
+        'number'  : 2
     }
     r = requests.get(endpoint,params = params, headers = headers)
     results = r.json()
     print(results)
     return results
-
-filterbyCuisine('thai')
