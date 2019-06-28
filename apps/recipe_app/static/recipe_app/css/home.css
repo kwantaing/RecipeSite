@@ -2,6 +2,13 @@ body {
     padding: 15px;
 }
 
+nav h1 {
+    font-size: 60px;
+    color: aliceblue;
+}
+.container h1{
+    color:black;
+}
 .jumbotron,.container{
     text-align:center;
 }
@@ -20,4 +27,12 @@ body {
     height: 200px;
     border-radius: 5px;
     text-align: center;
+    box-shadow:1px 2px 10px;
+    margin:5px;
+}
+.featured img{
+    border-radius: 5px;
+    max-height:100%;
+    width:100%;
+
 }
