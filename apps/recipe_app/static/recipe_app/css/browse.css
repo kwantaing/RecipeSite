@@ -40,8 +40,12 @@ body {
     overflow-y: scroll;
 
 }
+
 .fav {
     text-align: center;
+h1 a{
+    color:black;
+
 }
 .row {
     border:3px solid #343a40;

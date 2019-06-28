@@ -10,12 +10,14 @@
     <link rel="stylesheet" href="{% static 'recipe_app/css/home.css' %}">
 </head>
 <body>
+
     <nav class="navbar navbar-dark bg-dark">
         <a href="/welcome"class="navbar-brand">
             <h1>Foopie</h1>
         </a>
         <form class="form-inline my-2 my-lg-0 customform right_nav">
                 <p class="text-light"> <a class="text-light">Welcome {{user.first_name}}!&nbsp&nbsp</a><a href="/profile" class="text-light">Profile</a> | <a href="/logout" class="text-light"> Sign Out</a> </p> 
+
         </form>
     </nav>
     <div class="jumbotron jumbotron-fluid">
