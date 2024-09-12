@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="{% static 'recipe_app/css/home.css' %}">
 </head>
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <a href="/"class="navbar-brand">Foopie</a>
-        <form class="form-inline">
-            <span>Welcome {{user.first_name}}! &nbsp &nbsp</span><a href="#">  Profile  &nbsp</a><a href="/logout"> &nbsp Sign Out  </a>
+    <nav class="navbar navbar-dark bg-dark">
+        <a href="/welcome"class="navbar-brand">
+            <h1>Foopie</h1>
+        </a>
+        <form class="form-inline my-2 my-lg-0 customform right_nav">
+                <p class="text-light"> <a class="text-light">Welcome {{user.first_name}}!&nbsp&nbsp</a><a href="#" class="text-light">Profile</a> | <a href="/" class="text-light"> Sign Out</a> </p> 
         </form>
     </nav>
     <div class="jumbotron jumbotron-fluid">
@@ -26,7 +28,7 @@
             <button class="btn btn-outline-success my-2 my-sm-0"><a href="/surprise">Surprise Me</a></button>
         </div>
     </div>
-    <header><h1>Featured</h1></header>
+    <nav class="navbar navbar-light bg-light"><h1 class="navbar-brand">Featured</h1></nav>
     <div class="wrapper">
         <div class="featured">
             <a href="/recipe/view/{{featured1.id}}"><img src="{{featured1.image}}" alt=""></a>

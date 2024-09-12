@@ -5,13 +5,22 @@ body {
     position:relative;
     margin-bottom:15px;
 }
+
 .navbar .search{
     position:absolute;
     top: 17px;;
     right:20px;
 }
+
+.right_nav {
+    text-align: right;
+}
+
+.line {
+    color: white;
+}
 .filter {
-    border:3px solid pink;
+    border:3px solid #343a40;
     border-radius:10px;
     display: inline-block;
     vertical-align: top;
@@ -19,10 +28,11 @@ body {
     height: 100%;
     width:25%;
     margin:0 20px;
+    padding: 10px;
 }
 
 .container {
-    border:3px solid pink;
+    border:3px solid #343a40;
     border-radius:10px;
     display: inline-block;
     width: 70%;
@@ -32,10 +42,12 @@ body {
 }
 
 .row {
-    border:3px solid pink;
+    border:3px solid #343a40;
     border-radius:10px;
     margin: 10px;
+    padding: 5px;
     text-align: center;
+    box-shadow: 5px 10px 18px #888888;
 }
 
 .picture {
@@ -66,5 +78,10 @@ body {
 
 .fav_link {
     text-align: right;
+}
+
+.heart {
+    width: 35px;
+    height: 35px;
 }
 
